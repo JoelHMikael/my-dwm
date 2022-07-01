@@ -6,7 +6,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Font Awesome 5 Free Solid:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
+static const char dmenufont[]       = "Font Awesome 5 Free Solid:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -19,12 +19,13 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-const char terminal[] = "";
-const char code[] = "";
-const char docs[] = "";
-const char browser[] = "";
+const char terminal[]   = "";
+const char code[]       = "";
+const char docs[]       = "";
+const char browser[]    = "";
+const char office[]     = "";
 const char paintbrush[] = "";
-static const char *tags[] = { terminal, code, docs, browser, paintbrush };
+static const char *tags[] = { terminal, code, docs, browser, office, paintbrush };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -96,8 +97,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-	/*TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_6,                      5)
+	/*TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)*/
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
