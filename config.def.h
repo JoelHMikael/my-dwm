@@ -18,8 +18,9 @@ const char docs[]       = "";
 const char browser[]    = "";
 const char office[]     = "";
 const char paintbrush[] = "";
-static const char *tags[] = { terminal, code, docs, browser, office, paintbrush };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6" };
+const char key[]	= "";
+static const char *tags[] = { terminal, code, docs, browser, office, paintbrush, key };
+static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7" };
 static const int momentaryalttags = 1; /* 1 means alttags will show only when key is held down*/
 
 static const Rule rules[] = {
@@ -28,9 +29,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "st",       NULL,       NULL,       1,            0,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "Gimp",     NULL,       NULL,       1 << 4,       1,           -1 },
+	{ "Gimp",     NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "libreoffice",NULL,     NULL,       1 << 4,       0,           -1 },
+	{ "KeePassXC",NULL,       NULL,       1 << 6,       0,           -1 }
 };
 
 /* layout(s) */
@@ -101,8 +103,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	/*TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_7,                      6)
+	/*TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)*/
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
