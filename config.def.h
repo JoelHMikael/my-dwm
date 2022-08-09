@@ -63,11 +63,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL }; // The colors come from the pywal import at the top of the file
 static const char *termcmd[]  = { "st", NULL };
+static const char *uplightcmd[] = { "xbacklight", "-inc", "5%" };
+static const char *downlightcmd[] = { "xbacklight", "-dec", "5%" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Up,     spawn,          {.v = uplightcmd} },
+	{ MODKEY,                       XK_Down,   spawn,          {.v = downlightcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
