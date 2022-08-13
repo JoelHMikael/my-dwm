@@ -63,11 +63,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL }; // The colors come from the pywal import at the top of the file
 static const char *termcmd[]  = { "st", NULL };
-static const char *uplightcmd[] = { "xbacklight", "-inc", "5%" };
-static const char *downlightcmd[] = { "xbacklight", "-dec", "5%" };
+static const char *uplightcmd[] = { "xbacklight", "-inc", "5%", NULL };
+static const char *downlightcmd[] = { "xbacklight", "-dec", "5%", NULL };
 static const char *upvol[]   = { "amixer", "set", "Master", "3+",     NULL };
 static const char *downvol[] = { "amixer", "set", "Master", "3-",     NULL };
 static const char *mutevol[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *lockcmd[] = { "i3lock", "-c", "151515", "-n", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -78,6 +79,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F3,     spawn,          {.v = upvol   } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = mutevol } },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
